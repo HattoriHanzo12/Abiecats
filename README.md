@@ -17,7 +17,7 @@ AbieCats is a generative NFT project on Bitcoin Ordinals using the `AbieCats.ab.
 
 ## Installation
 1. Install Node.js: https://nodejs.org
-2. Clone this repo: `git clone <repo-url>`
+2. Clone this repo: `git clone https://github.com/venkyaare/abiecats.git`
 3. Run: `cd src && node generateAbieCats.js`
 
 ## Usage
