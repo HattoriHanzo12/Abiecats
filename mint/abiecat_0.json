@@ -1,0 +1,45 @@
+{
+  "headColor": [
+    255,
+    182,
+    193
+  ],
+  "bodyColor": [
+    150,
+    255,
+    150
+  ],
+  "earColor": [
+    255,
+    100,
+    100
+  ],
+  "tailPos": "down",
+  "eyeSize": 70,
+  "eyeShape": "round",
+  "eyeColor": [
+    50,
+    205,
+    50
+  ],
+  "whiskerLength": 50,
+  "whiskerThickness": 1,
+  "noseSize": 22,
+  "mouthColor": [
+    0,
+    0,
+    0
+  ],
+  "mouthExpression": "smile",
+  "pupilSize": 12,
+  "irisColor": [
+    255,
+    105,
+    180
+  ],
+  "pupilDirection": "up",
+  "hashSeed": 132648,
+  "element": "AbieCats.ab.0",
+  "inscriptionId": "88570716",
+  "blockHash": "0000000000000000000021f390bf9826f1136cce623d2652b294ab3913e8562c"
+}
