@@ -16,13 +16,9 @@ Abiecats is a Digital Matter Theory (DMT) project inscribed on Bitcoin using the
   - Block Hash: `000000000000148135e10208db85abb62754341a392eab1f186aab077a831cf7`
 
 ## Repository Structure
-- `mint/`: Contains deployment and mint JSON files.
+- `mint/`: Contains deployment and mint JSON files (`abiecat_0.json`, `abiecat_1.json`, `abiecat_2.json`).
 - `src/`: Contains `generateAbieCats.js` for generation logic.
 - `visuals/`: For visual assets (currently empty).
-
-## GitHub Setup Screenshot
-![GitHub Setup](github_setup_screenshot.png)
-*Screenshot of the repository structure as of March 12, 2025.*
 
 ## How to Inscribe
 1. Use an Ordinals-compatible tool (e.g., `ord` CLI or Unisat wallet) that supports TAP/DMT.
