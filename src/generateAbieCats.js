@@ -82,11 +82,12 @@ function generateAndSaveAbieCat(blockHash, catCounter) {
   let seed = hashToSeed(blockHash);
   const baseCat = generateCat(blockHash, seed, catCounter);
 
-  // TAP/DMT structure
+  // TAP/DMT structure with consistent elem for field 0
   const abieCat = {
     p: "tap",
     op: catCounter === 0 ? "dmt-deploy" : "dmt-mint",
-    elem: `AbieCats.ab.${catCounter}`,
+    elem: "AbieCats.ab.0", // Consistent with field 0 (block hash)
+    instance: catCounter,   // Distinguishes deploy (0) and mints (1, 2)
     tick: "abiecats",
     blk: catCounter === 0 ? "125003" : catCounter === 1 ? "125004" : "125006",
     hash: blockHash,

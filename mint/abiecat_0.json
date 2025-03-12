@@ -2,6 +2,7 @@
   "p": "tap",
   "op": "dmt-deploy",
   "elem": "AbieCats.ab.0",
+  "instance": 0,
   "tick": "abiecats",
   "blk": "125003",
   "hash": "000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af",
