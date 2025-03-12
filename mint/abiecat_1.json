@@ -1,6 +1,7 @@
 {
-  "p": "dmt",
-  "op": "mint",
+  "p": "tap",
+  "op": "dmt-mint",
+  "elem": "AbieCats.ab.1",
   "tick": "abiecats",
   "blk": "125004",
   "hash": "00000000000041fd154f86996ee479270b4cee8a43bab8738b417a3f1d68bf27"

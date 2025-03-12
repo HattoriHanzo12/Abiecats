@@ -1,34 +1,34 @@
-# AbieCats: A Bitcoin Ordinals DMT Project
+# Abiecats - DMT/TAP Project
 
-## Overview
-AbieCats is a generative NFT project on Bitcoin Ordinals using the `AbieCats.ab.0` DMT element. The rule requires a block hash containing "ab" to mint unique *AbieCats*.
+Abiecats is a Digital Matter Theory (DMT) project inscribed on Bitcoin using the TAP protocol, targeting block hashes with the 'ab' pattern.
 
-## Deploy Inscription
-- ID: #88570716
-- Link: https://ordiscan.com/inscription/88570716
-- Content: Defines `AbieCats.ab.0` element.
-- Block: 887040
-- Inscription ID: 51716b37995b1ebaca198f4fd4409cfe3a4d84cdce712451dccde53955a19c76i0
+## Project Details
+- **Protocol**: TAP (DMT)
+- **Ticker**: `abiecats`
+- **Deploy File**: `mint/abiecat_0.json`
+  - Block Height: 125003
+  - Block Hash: `000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af`
+- **Mint File 1**: `mint/abiecat_1.json`
+  - Block Height: 125004
+  - Block Hash: `00000000000041fd154f86996ee479270b4cee8a43bab8738b417a3f1d68bf27`
+- **Mint File 2**: `mint/abiecat_2.json`
+  - Block Height: 125006
+  - Block Hash: `000000000000148135e10208db85abb62754341a392eab1f186aab077a831cf7`
 
-## Minted NFTs
-- #88749600 (mints/abiecat_0.json, ID: 5ce6f7fbdac88c105a34580f1e067056cb6ea6e6a609f2f709e2f29556752c25i0)
-- ID: aacc45d8165fbf004a1e3b3c1ae9a0781cbabfcbd124f888402c0d80e5dd173fi0 (mints/abiecat_1.json)
-- #09aa4e3fa73bd82414f5a578631329331323be21820dc2a1460d27c35e8a270ei0 (mints/abiecat_2.json)
+## Repository Structure
+- `mint/`: Contains deployment and mint JSON files.
+- `src/`: Contains `generateAbieCats.js` for generation logic.
+- `visuals/`: For visual assets (currently empty).
 
-## Installation
-1. Install Node.js: https://nodejs.org
-2. Clone this repo: `git clone https://github.com/venkyaare/abiecats.git`
-3. Run: `cd src && node generateAbieCats.js`
+## GitHub Setup Screenshot
+![GitHub Setup](github_setup_screenshot.png)
+*Screenshot of the repository structure as of March 12, 2025.*
 
-## Usage
-- Modify `blockHashes` in `src/generateAbieCats.js` with new "ab"-containing hashes.
-- Inscribe generated `.json` files in `mints/` via Unisat Wallet.
+## How to Inscribe
+1. Use an Ordinals-compatible tool (e.g., `ord` CLI or Unisat wallet) that supports TAP/DMT.
+2. Inscribe `mint/abiecat_0.json` first, then `mint/abiecat_1.json` and `mint/abiecat_2.json`.
+3. Verify on [Ordiscan](https://ordiscan.com).
 
-## Visuals
-Use p5.js (to be added in `visuals/` folder) to generate images based on traits.
-
-## License
-MIT License
-
-## Contributing
-Fork this repo, add new hashes, and submit pull requests!
+## Development
+- **Environment**: MacBook Pro, VSCode
+- **Last Updated**: March 12, 2025
