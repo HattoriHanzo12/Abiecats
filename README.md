@@ -7,20 +7,20 @@ Abiecats is a Digital Matter Theory (DMT) project inscribed on Bitcoin using the
 - **Ticker**: `abiecats`
 - **Deploy File**: `mint/abiecat_0.json`
   - Block Height (Target): 125003
-  - Actual Block Height: TBD
-  - Inscription ID: TBD
+  - Actual Block Height: 887528
+  - Inscription ID: `b0738cb4abb8a0b59856076bb8ff47765be305fa977f76b98cb5a628fc3770fbi0`
   - Block Hash: `000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af`
   - elem: `AbieCats.ab.0`, instance: 0
 - **Mint File 1**: `mint/abiecat_1.json`
   - Block Height (Target): 125004
-  - Actual Block Height: TBD
-  - Inscription ID: TBD
+  - Actual Block Height: 887528
+  - Inscription ID: `26c3d7cd571310dd70a27db706dd536368f37fbb52ef8682363f7af0f5514164i0`
   - Block Hash: `00000000000041fd154f86996ee479270b4cee8a43bab8738b417a3f1d68bf27`
   - elem: `AbieCats.ab.0`, instance: 1
 - **Mint File 2**: `mint/abiecat_2.json`
   - Block Height (Target): 125006
-  - Actual Block Height: TBD
-  - Inscription ID: TBD
+  - Actual Block Height: 887528
+  - Inscription ID: `53bc97f2a8fecd4aefc1dc0597cc7dff6d3488884f87958e7d3f402aa731b870i0`
   - Block Hash: `000000000000148135e10208db85abb62754341a392eab1f186aab077a831cf7`
   - elem: `AbieCats.ab.0`, instance: 2
 
@@ -42,4 +42,4 @@ Generated Abiecat images based on traits:
 
 ## Development
 - **Environment**: MacBook Pro, VSCode
-- **Last Updated**: March 12, 2025
+- **Last Updated**: March 13, 2025
