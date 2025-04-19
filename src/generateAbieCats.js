@@ -17,11 +17,11 @@ const pupilSizes = [8, 12, 16];
 const irisColors = [[255, 215, 0], [0, 191, 255], [50, 205, 50], [255, 105, 180]];
 const pupilDirections = ["left", "right", "up", "down"];
 
-// New block hashes for 'ab' pattern
-const blockHashes = [
-  "000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af", // Block 125003
-  "00000000000041fd154f86996ee479270b4cee8a43bab8738b417a3f1d68bf27", // Block 125004
-  "000000000000148135e10208db85abb62754341a392eab1f186aab077a831cf7"  // Block 125006
+// Block data (height and hash)
+const blockData = [
+  { height: "125003", hash: "000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af" },
+  { height: "125004", hash: "00000000000041fd154f86996ee479270b4cee8a43bab8738b417a3f1d68bf27" },
+  { height: "125006", hash: "000000000000148135e10208db85abb62754341a392eab1f186aab077a831cf7" }
 ];
 
 function hashToSeed(hashStr) {
@@ -73,35 +73,42 @@ function generateCat(blockHash, seed, catCounter) {
   };
 }
 
-function generateAndSaveAbieCat(blockHash, catCounter) {
+function generateAndSaveAbieCat(blockHeight, blockHash, catCounter) {
+  // Validate that the block hash contains "ab"
   if (!blockHash.includes("ab")) {
-    console.log(`Block hash does not contain 'ab' for AbieCat #${catCounter}. Skipping generation.`);
+    console.log(`Block hash does not contain 'ab' for AbieCat #${catCounter} (block ${blockHeight}). Skipping generation.`);
     return null;
   }
 
   let seed = hashToSeed(blockHash);
   const baseCat = generateCat(blockHash, seed, catCounter);
 
-  // TAP/DMT structure with consistent elem for field 0
-  const abieCat = {
+  // Mint JSON
+  const mintJson = {
     p: "tap",
-    op: catCounter === 0 ? "dmt-deploy" : "dmt-mint",
-    elem: "AbieCats.ab.0", // Consistent with field 0 (block hash)
-    instance: catCounter,   // Distinguishes deploy (0) and mints (1, 2)
-    tick: "abiecats",
-    blk: catCounter === 0 ? "125003" : catCounter === 1 ? "125004" : "125006",
+    op: "dmt-mint",
+    tick: "ABIECATS",
+    blk: blockHeight
+  };
+  const mintFilename = `mint/abiecat_${catCounter}_mint.json`;
+  fs.writeFileSync(mintFilename, JSON.stringify(mintJson, null, 2));
+  console.log(`Generated and saved AbieCat #${catCounter} mint JSON to ${mintFilename}:`, JSON.stringify(mintJson, null, 2));
+
+  // Metadata JSON
+  const metadataJson = {
+    instance: catCounter,
+    blk: blockHeight,
     hash: blockHash,
     ...baseCat
   };
+  const metadataFilename = `mint/abiecat_${catCounter}_metadata.json`;
+  fs.writeFileSync(metadataFilename, JSON.stringify(metadataJson, null, 2));
+  console.log(`Generated and saved AbieCat #${catCounter} metadata JSON to ${metadataFilename}:`, JSON.stringify(metadataJson, null, 2));
 
-  const jsonOutput = JSON.stringify(abieCat, null, 2);
-  const filename = `mint/abiecat_${catCounter}.json`;
-  fs.writeFileSync(filename, jsonOutput);
-  console.log(`Generated and saved AbieCat #${catCounter} to ${filename}:`, jsonOutput);
-  return abieCat;
+  return { mintJson, metadataJson };
 }
 
-// Generate AbieCats with new block hashes
-blockHashes.forEach((hash, index) => {
-  generateAndSaveAbieCat(hash, index);
+// Generate AbieCats for valid blocks
+blockData.forEach((block, index) => {
+  generateAndSaveAbieCat(block.height, block.hash, index);
 });
