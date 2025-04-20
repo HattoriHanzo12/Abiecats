@@ -19,7 +19,7 @@ Abiecats uses on-chain rendering to dynamically generate images in DMT-compatibl
 Abiecats follows the Unique Non-Arbitrary Token (UNAT) standard, combining Non-Arbitrary Tokens (NATs) with unique art, as defined in the [DMT GitBook](https://digital-matter-theory.gitbook.io/digital-matter-theory/introduction/non-arbitrary-tokens-nats). The UNAT standard ensures that each Abiecat is a unique, blockchain-verifiable asset with on-chain rendering.
 
 ### UNAT Metadata Structure
-Each Abiecat's metadata is inscribed as a JSON file, following the TAP protocol (`"p": "tap"`, `"op": "token-mint"`). The metadata includes:
+Each Abiecat's metadata is inscribed as a JSON file in the `mint/` directory, following the TAP protocol (`"p": "tap"`, `"op": "token-mint"`). The metadata includes:
 - **Protocol Fields**: `"p": "tap"`, `"op": "token-mint"`, `"tick": "abiecats"`, `"elem": "AbieCats.ab.0"`, `"instance"`.
 - **Rendering Reference**: `"art"` field pointing to the renderer inscription ID (`abc123i0`).
 - **Traits**: A `traits` object containing all attributes (e.g., `headColor`, `eyeSize`, `mouthExpression`) used by the renderer.
@@ -27,14 +27,14 @@ Each Abiecat's metadata is inscribed as a JSON file, following the TAP protocol 
 ### Inscription Process
 1. **Inscribe Renderer**: The `abiecat_renderer.js` file is inscribed on the Bitcoin Mainnet using Unisat Wallet, resulting in inscription ID `abc123i0`.
 2. **Inscribe Metadata**: Each Abiecat's metadata JSON file is inscribed, referencing the renderer ID. For example:
-   - `abiecat_0_metadata.json` is inscribed at `new_id_0i0`.
-   - `abiecat_1_metadata.json` is inscribed at `new_id_1i0`.
-   - `abiecat_2_metadata.json` is inscribed at `new_id_2i0`.
+   - `abiecat_0.json` is inscribed at `new_id_0i0`.
+   - `abiecat_1.json` is inscribed at `new_id_1i0`.
+   - `abiecat_2.json` is inscribed at `new_id_2i0`.
 
 ## Project Details
 - **Protocol**: TAP (DMT)
 - **Ticker**: `abiecats`
-- **Deploy File**: `mint/abiecat_0.json`
+- **Mint File 0**: `mint/abiecat_0.json`
   - Block Height (Target): 125003
   - Actual Block Height: 887528
   - Inscription ID: `new_id_0i0`

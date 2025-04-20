@@ -1,0 +1,28 @@
+{
+  "p": "tap",
+  "op": "token-mint",
+  "tick": "abiecats",
+  "elem": "AbieCats.ab.0",
+  "instance": 1,
+  "art": "abc123i0",
+  "blk": "125004",
+  "hash": "00000000000041fd154f86996ee479270b4cee8a43bab8738b417a3f1d68bf27",
+  "traits": {
+    "headColor": [0, 191, 255],
+    "bodyColor": [150, 200, 255],
+    "earColor": [200, 200, 0],
+    "tailPos": "curled",
+    "eyeSize": 50,
+    "eyeShape": "almond",
+    "eyeColor": [255, 215, 0],
+    "whiskerLength": 60,
+    "whiskerThickness": 1,
+    "noseSize": 18,
+    "mouthColor": [255, 105, 180],
+    "mouthExpression": "smile",
+    "pupilSize": 16,
+    "irisColor": [0, 191, 255],
+    "pupilDirection": "left",
+    "hashSeed": 38933
+  }
+}
