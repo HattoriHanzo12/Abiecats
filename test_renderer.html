@@ -3,35 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abiecat Renderer Test</title>
+  <title>AbieCat Renderer Test</title>
 </head>
 <body>
-  <h1>Abiecat Renderer Test</h1>
-  <canvas id="abiecatCanvas"></canvas>
-  <script src="abiecat_renderer.js"></script>
+  <h1>AbieCat Renderer Test</h1>
+  <canvas id="AbieCatCanvas"></canvas>
+  <script src="AbieCat_renderer.js"></script>
   <script>
-    // Sample traits (matching abiecat_0.json)
+    // Sample traits (matching AbieCat_0.json, which matches the deploy file)
     const traits = {
-      headColor: [128, 0, 128],
+      headColor: [50, 205, 50],
       bodyColor: [150, 255, 150],
-      earColor: [200, 200, 0],
-      tailPos: "down",
-      eyeSize: 70,
-      eyeShape: "almond",
+      earColor: [0, 150, 255],
+      tailPos: "curled",
+      eyeSize: 60,
+      eyeShape: "round",
       eyeColor: [50, 205, 50],
-      whiskerLength: 60,
-      whiskerThickness: 1,
-      noseSize: 18,
-      mouthColor: [255, 105, 180],
-      mouthExpression: "smile",
-      pupilSize: 16,
-      irisColor: [50, 205, 50],
-      pupilDirection: "down"
+      whiskerLength: 50,
+      whiskerThickness: 3,
+      noseSize: 14,
+      mouthColor: [0, 0, 0],
+      mouthExpression: "neutral",
+      pupilSize: 8,
+      irisColor: [255, 215, 0],
+      pupilDirection: "down",
+      hashSeed: 175821
     };
 
     // Call the renderer
     window.onload = function() {
-      renderAbiecat(traits, "abiecatCanvas");
+      renderAbieCat(traits, "AbieCatCanvas");
     };
   </script>
 </body>
