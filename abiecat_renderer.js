@@ -77,7 +77,7 @@ function renderAbiecat(traits, canvasId) {
     drawAlmondEye(240, 180, traits.eyeSize);
   }
 
-  // Iris (using irisColor instead of eyeColor for consistency with original)
+  // Iris
   ctx.fillStyle = `rgb(${traits.irisColor.join(",")})`;
   ctx.beginPath();
   ctx.ellipse(160, 180, traits.eyeSize * 0.55, traits.eyeSize * 0.55, 0, 0, Math.PI * 2);
