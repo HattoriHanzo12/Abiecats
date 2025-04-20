@@ -2,44 +2,19 @@
   "instance": 0,
   "blk": "125003",
   "hash": "000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af",
-  "headColor": [
-    50,
-    205,
-    50
-  ],
-  "bodyColor": [
-    150,
-    255,
-    150
-  ],
-  "earColor": [
-    0,
-    150,
-    255
-  ],
-  "tailPos": "curled",
-  "eyeSize": 60,
-  "eyeShape": "round",
-  "eyeColor": [
-    50,
-    205,
-    50
-  ],
-  "whiskerLength": 50,
-  "whiskerThickness": 3,
-  "noseSize": 14,
-  "mouthColor": [
-    0,
-    0,
-    0
-  ],
-  "mouthExpression": "neutral",
-  "pupilSize": 8,
-  "irisColor": [
-    255,
-    215,
-    0
-  ],
+  "headColor": [128, 0, 128],
+  "bodyColor": [150, 255, 150],
+  "earColor": [200, 200, 0],
+  "tailPos": "down",
+  "eyeSize": 25,
+  "eyeShape": "almond",
+  "eyeColor": [50, 205, 50],
+  "whiskerLength": 60,
+  "whiskerThickness": 1,
+  "noseSize": 18,
+  "mouthColor": [255, 105, 180],
+  "mouthExpression": "smile",
+  "pupilSize": 16,
   "pupilDirection": "down",
   "hashSeed": 175821,
   "blockHash": "000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af"

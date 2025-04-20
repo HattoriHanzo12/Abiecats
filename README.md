@@ -1,107 +1,70 @@
-# Abiecats - Digital Matter Theory Project
+# Abiecats
 
-## Overview
-Abiecats is a Digital Matter Theory (DMT) project that leverages the Bitcoin blockchain to create non-arbitrary tokens (NATs) based on the "ab" pattern in the `block_hash` field (field 0). Each token represents a unique digital collectible tied to blocks where the block hash contains "ab", inscribed as Ordinal Inscriptions. This project follows the DMT framework outlined in the [DMT GitBook](https://digital-matter-theory.gitbook.io/digital-matter-theory).
+Abiecats is a generative art project built on Bitcoin Ordinals, utilizing Digital Matter Theory (DMT) to create unique digital cats based on patterns in Bitcoin block hashes.
+
+## Digital Matter Theory (DMT) Implementation
+Abiecats leverages DMT to generate unique digital assets by analyzing patterns in Bitcoin block data. Specifically, Abiecats uses the "ab" pattern in block hashes to deterministically generate traits for each cat. The rendering logic and metadata are inscribed on-chain, ensuring authenticity and transparency, following DMT principles as outlined in the [DMT GitBook](https://digital-matter-theory.gitbook.io/digital-matter-theory).
+
+### Pattern Selection
+- **Pattern**: "ab" in Bitcoin block hashes.
+- **Process**: Block hashes are analyzed to find instances of the "ab" pattern. Each matching block generates a unique Abiecat with traits derived from the hash using a seeded random function (`hashToSeed`).
+
+### On-Chain Rendering
+Abiecats uses on-chain rendering to dynamically generate images in DMT-compatible wallets. The rendering logic is implemented in `abiecat_renderer.js`, a JavaScript file inscribed on the Bitcoin blockchain. This script uses the HTML5 Canvas API to render each cat based on its traits, ensuring the image is generated directly from the blockchain data.
+
+- **Renderer Inscription**: The rendering logic (`abiecat_renderer.js`) is inscribed at ID `abc123i0`.
+- **Rendering Process**: Wallets like Unisat Wallet or Ordinals Wallet load the renderer and metadata, calling the `renderAbiecat` function with the cat's traits to display the image.
+
+## UNAT Standard Implementation
+Abiecats follows the Unique Non-Arbitrary Token (UNAT) standard, combining Non-Arbitrary Tokens (NATs) with unique art, as defined in the [DMT GitBook](https://digital-matter-theory.gitbook.io/digital-matter-theory/introduction/non-arbitrary-tokens-nats). The UNAT standard ensures that each Abiecat is a unique, blockchain-verifiable asset with on-chain rendering.
+
+### UNAT Metadata Structure
+Each Abiecat's metadata is inscribed as a JSON file, following the TAP protocol (`"p": "tap"`, `"op": "token-mint"`). The metadata includes:
+- **Protocol Fields**: `"p": "tap"`, `"op": "token-mint"`, `"tick": "abiecats"`, `"elem": "AbieCats.ab.0"`, `"instance"`.
+- **Rendering Reference**: `"art"` field pointing to the renderer inscription ID (`abc123i0`).
+- **Traits**: A `traits` object containing all attributes (e.g., `headColor`, `eyeSize`, `mouthExpression`) used by the renderer.
+
+### Inscription Process
+1. **Inscribe Renderer**: The `abiecat_renderer.js` file is inscribed on the Bitcoin Mainnet using Unisat Wallet, resulting in inscription ID `abc123i0`.
+2. **Inscribe Metadata**: Each Abiecat's metadata JSON file is inscribed, referencing the renderer ID. For example:
+   - `abiecat_0_metadata.json` is inscribed at `new_id_0i0`.
+   - `abiecat_1_metadata.json` is inscribed at `new_id_1i0`.
+   - `abiecat_2_metadata.json` is inscribed at `new_id_2i0`.
 
 ## Project Details
-- **Pattern**: "ab" (hexadecimal, case-sensitive, must appear anywhere in the block hash)
-- **Field**: `block_hash` (field 0 in the .element registry)
-- **Element Inscription**: `Abiecats.ab.0.element`
-- **Element Inscription ID**: `404d96addddfa6fc8c18d6af83b081fd04501a4d8c97909301116a7359dfcf58i0`
-- **Purpose**: Create a collection of digital collectibles with traits derived from Bitcoin block data, ensuring authenticity through blockchain patterns.
-- **Total Supply**: Determined by the number of blocks where the `block_hash` contains "ab".
+- **Protocol**: TAP (DMT)
+- **Ticker**: `abiecats`
+- **Deploy File**: `mint/abiecat_0.json`
+  - Block Height (Target): 125003
+  - Actual Block Height: 887528
+  - Inscription ID: `new_id_0i0`
+  - Rendering ID: `abc123i0`
+  - Block Hash: `000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af`
+  - elem: `AbieCats.ab.0`, instance: 0
+- **Mint File 1**: `mint/abiecat_1.json`
+  - Block Height (Target): 125004
+  - Actual Block Height: 887528
+  - Inscription ID: `new_id_1i0`
+  - Rendering ID: `abc123i0`
+  - Block Hash: `00000000000041fd154f86996ee479270b4cee8a43bab8738b417a3f1d68bf27`
+  - elem: `AbieCats.ab.0`, instance: 1
+- **Mint File 2**: `mint/abiecat_2.json`
+  - Block Height (Target): 125006
+  - Actual Block Height: 887528
+  - Inscription ID: `new_id_2i0`
+  - Rendering ID: `abc123i0`
+  - Block Hash: `000000000000148135e10208db85abb62754341a392eab1f186aab077a831cf7`
+  - elem: `AbieCats.ab.0`, instance: 2
 
-## Setup and Usage
-### Prerequisites
-- Node.js and npm installed
-- An Ordinals-compatible wallet (e.g., Xverse, Unisat, or Ordinals Wallet)
-- Bitcoin testnet or mainnet access for inscriptions
-- Familiarity with the [TAP protocol](https://digital-matter-theory.gitbook.io/digital-matter-theory) and Ordinal Inscriptions
+## Installation
+To view Abiecats, use a DMT-compatible wallet like Unisat Wallet or Ordinals Wallet, and load the inscription IDs listed above.
 
-### Steps to Deploy Abiecats
-1. **Identify and Verify the Pattern**:
-   - The "ab" pattern is chosen for the `block_hash` field, ensuring it is unique and not registered by another project. Check existing .element inscriptions via platforms like [Mscribe.io](https://mscribe.io/) or community resources (e.g., DMT GitHub, X posts).
-   - The pattern "ab" must appear anywhere in the `block_hash`. Validate matching blocks using blockchain data analysis tools.
-
-2. **Register the .element Inscription**:
-   - The .element inscription for this project is `Abiecats.ab.0.element`, which has already been inscribed on the Bitcoin blockchain.
-   - **Inscription ID**: `404d96addddfa6fc8c18d6af83b081fd04501a4d8c97909301116a7359dfcf58i0`
-   - This inscription is indexed by services like Trac Core or Mscribe.io for recognition in the .element registry.
-
-3. **Generate Inscription JSON Files**:
-   - The `src/generateAbieCats.js` script identifies blocks where the `block_hash` contains the "ab" pattern and generates two JSON files per token:
-     - A `dmt-mint` JSON for minting the token (e.g., `mint/abiecat_0_mint.json`).
-     - A metadata JSON with token attributes (e.g., `mint/abiecat_0_metadata.json`).
-   - Run the script:
-     ```bash
-     npm install
-     node src/generateAbieCats.js
-     ```
-   - This populates the `mint/` folder with JSON files for each token (e.g., `abiecat_0_mint.json`, `abiecat_0_metadata.json`).
-
-4. **Deploy the NAT**:
-   - Deploy the NAT using the TAP protocol's `dmt-deploy` operation, referencing the .element `inscriptionID`.
-   - Example JSON for deployment:
-     ```json
-     {
-       "p": "tap",
-       "op": "dmt-deploy",
-       "elem": "404d96addddfa6fc8c18d6af83b081fd04501a4d8c97909301116a7359dfcf58i0",
-       "tick": "ABIECATS",
-       "dim": "horizontal",
-       "dt": "hex"
-     }
-     ```
-   - Inscribe this JSON as an Ordinal Inscription to initialize the project.
-   - Verify the deployment on platforms like Mscribe.io.
-
-5. **Mint Tokens**:
-   - Mint tokens for each valid block where the `block_hash` contains the "ab" pattern using the generated `dmt-mint` JSON files.
-   - Example mint JSON (e.g., `mint/abiecat_0_mint.json`):
-     ```json
-     {
-       "p": "tap",
-       "op": "dmt-mint",
-       "tick": "ABIECATS",
-       "blk": "125003"
-     }
-     ```
-   - Inscribe each mint JSON to create a token tied to a specific block.
-   - Separately, inscribe the metadata JSON (e.g., `mint/abiecat_0_metadata.json`) to associate attributes with the token:
-     ```json
-     {
-       "instance": 0,
-       "blk": "125003",
-       "hash": "000000000000021a37be00b72bef47fdb2abecc2f2870a6834c2f461012d56af",
-       "hashSeed": 175821,
-       "headColor": [50, 205, 50],
-       "bodyColor": [150, 255, 150],
-       "earColor": [0, 150, 255],
-       "tailPos": "curled",
-       "eyeSize": 60,
-       "eyeShape": "round",
-       "eyeColor": [50, 205, 50],
-       "whiskerLength": 50,
-       "whiskerThickness": 3,
-       "noseSize": 14,
-       "mouthColor": [0, 0, 0],
-       "mouthExpression": "neutral",
-       "pupilSize": 8,
-       "irisColor": [255, 215, 0],
-       "pupilDirection": "down"
-     }
-     ```
+## Usage
+Abiecats are dynamically rendered in your wallet using the on-chain JavaScript renderer. Each cat is generated based on traits derived from Bitcoin block hashes containing the "ab" pattern.
 
 ## Contributing
-Contributions are welcome! Please submit issues or pull requests for bug fixes, new
-
- features, or documentation improvements.
-
-## Resources
-- [Digital Matter Theory GitBook](https://digital-matter-theory.gitbook.io/digital-matter-theory)
-- [Abiecats GitHub Repository](https://github.com/HattoriHanzo12/Abiecats)
-- [Mscribe.io for NAT Management](https://mscribe.io/)
-- [The Royals DMT Example](https://the-royals.gitbook.io/theroyals)
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-MIT License
+[MIT](https://choosealicense.com/licenses/mit/)
+

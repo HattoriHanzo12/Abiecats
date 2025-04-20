@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abiecat Renderer Test</title>
+</head>
+<body>
+  <h1>Abiecat Renderer Test</h1>
+  <canvas id="abiecatCanvas"></canvas>
+  <script src="abiecat_renderer.js"></script>
+  <script>
+    // Sample traits (matching abiecat_0_metadata.json)
+    const traits = {
+      headColor: [128, 0, 128],
+      bodyColor: [150, 255, 150],
+      earColor: [200, 200, 0],
+      tailPos: "down",
+      eyeSize: 70,
+      eyeShape: "almond",
+      eyeColor: [50, 205, 50],
+      whiskerLength: 60,
+      whiskerThickness: 1,
+      noseSize: 18,
+      mouthColor: [255, 105, 180],
+      mouthExpression: "smile",
+      pupilSize: 16,
+      irisColor: [50, 205, 50],
+      pupilDirection: "down"
+    };
+
+    // Call the renderer
+    window.onload = function() {
+      renderAbiecat(traits, "abiecatCanvas");
+    };
+  </script>
+</body>
+</html>
