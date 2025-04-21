@@ -12,7 +12,7 @@ AbieCats leverages DMT to generate unique digital assets by analyzing patterns i
 ### On-Chain Rendering
 AbieCats uses on-chain rendering to dynamically generate images in DMT-compatible wallets. The rendering logic is implemented in `AbieCat_renderer.js`, a JavaScript file inscribed on the Bitcoin blockchain. This script uses the HTML5 Canvas API to render each cat based on its traits, ensuring the image is generated directly from the blockchain data.
 
-- **Renderer Inscription**: The rendering logic (`AbieCat_renderer.js`) is inscribed at ID `abc123i0`.
+- **Renderer Inscription**: The rendering logic (`AbieCat_renderer.js`) is inscribed at ID `2265aaba6a3d3b04a78420bb515d5477bdef5a814a4028e6affa9935ff404ae6i0`.
 - **Rendering Process**: Wallets like Unisat Wallet or Ordinals Wallet load the renderer and metadata, calling the `renderAbieCat` function with the cat's traits to display the image.
 
 ## UNAT Standard Implementation
@@ -23,12 +23,12 @@ The AbieCats collection is deployed with a `"dmt-deploy"` operation, which defin
 - **Protocol Fields**:
   - Deploy: `"p": "tap"`, `"op": "dmt-deploy"`, `"tick": "abiecats"`, `"elem": "AbieCats.ab.0"`, `"instance"`.
   - Mint: `"p": "tap"`, `"op": "token-mint"`, `"tick": "abiecats"`, `"elem": "AbieCats.ab.0"`, `"instance"`.
-- **Rendering Reference**: `"art"` field in mint files pointing to the renderer inscription ID (`abc123i0`).
+- **Rendering Reference**: `"art"` field in mint files pointing to the renderer inscription ID (`2265aaba6a3d3b04a78420bb515d5477bdef5a814a4028e6affa9935ff404ae6i0`).
 - **Traits**: Attributes (e.g., `headColor`, `eyeSize`, `mouthExpression`) used by the renderer, stored directly in the root object for consistency with the deploy operation.
 
 ### Inscription Process
 1. **Inscribe Deploy File**: The deploy file (defining the collection and `AbieCat_0`) has been inscribed on the Bitcoin Mainnet using Unisat Wallet, resulting in inscription ID `deploy_id`.
-2. **Inscribe Renderer**: The `AbieCat_renderer.js` file is inscribed, resulting in inscription ID `abc123i0`.
+2. **Inscribe Renderer**: The `AbieCat_renderer.js` file is inscribed, resulting in inscription ID `2265aaba6a3d3b04a78420bb515d5477bdef5a814a4028e6affa9935ff404ae6i0`.
 3. **Inscribe Metadata**: Each subsequent AbieCat's metadata JSON file is inscribed, referencing the renderer ID. For example:
    - `AbieCat_1.json` is inscribed at `new_id_1i0`.
    - `AbieCat_2.json` is inscribed at `new_id_2i0`.
@@ -47,14 +47,14 @@ The AbieCats collection is deployed with a `"dmt-deploy"` operation, which defin
   - Block Height (Target): 125004
   - Actual Block Height: 887528
   - Inscription ID: `new_id_1i0`
-  - Rendering ID: `abc123i0`
+  - Rendering ID: `2265aaba6a3d3b04a78420bb515d5477bdef5a814a4028e6affa9935ff404ae6i0`
   - Block Hash: `00000000000041fd154f86996ee479270b4cee8a43bab8738b417a3f1d68bf27`
   - elem: `AbieCats.ab.0`, instance: 1
 - **Mint File 2**: `mint/AbieCat_2.json`
   - Block Height (Target): 125006
   - Actual Block Height: 887528
   - Inscription ID: `new_id_2i0`
-  - Rendering ID: `abc123i0`
+  - Rendering ID: `2265aaba6a3d3b04a78420bb515d5477bdef5a814a4028e6affa9935ff404ae6i0`
   - Block Hash: `000000000000148135e10208db85abb62754341a392eab1f186aab077a831cf7`
   - elem: `AbieCats.ab.0`, instance: 2
 
