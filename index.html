@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AbieCats – Nat-Natcats Previewer</title>
+  <style>
+    body{background:#000;color:#0f0;font-family:Arial;text-align:center;padding:40px;}
+    input,button{padding:12px;font-size:18px;margin:10px;}
+    #viewer{width:340px;height:460px;margin:30px auto;border:4px solid #0f0;box-shadow:0 0 40px #0f0;border-radius:16px;background:#111;position:relative;overflow:hidden;}
+    pre{background:#111;padding:15px;border-radius:12px;display:inline-block;font-size:14px;}
+    h1{font-size:2.5em;text-shadow:0 0 20px #0f0;}
+  </style>
+</head>
+<body>
+  <h1>AbieCats – Nat-Natcats</h1>
+  <p>Enter any block with "ab" in its hash</p>
+  <input id="block" placeholder="Try 1, 5, 11, 28, 69…" style="width:300px">
+  <button onclick="preview()">Preview Nat-Natcat</button>
+  <br><br>
+  <div id="viewer"></div>
+  <pre id="info"></pre>
+
+<script>
+// FINAL ABIE CATS – NAT-NATCATS RENDERER (exact Natcats visuals + 69 star instead of 420)
+const root = document.getElementById('viewer');
+const colorMap   = {1:"#6D2BF8",2:"#AF89FE",3:"#FDF64D",4:"#2067F0",5:"#976F53",6:"#CBC7E3",7:"#15D96F",8:"#FF64C1",9:"#F95E3C",0:"#585663"};
+const colorMap2  = {1:"#5922CD",2:"#9C6EFE",3:"#FDE14D",4:"#1C54C0",5:"#725540",6:"#8F8DA5",7:"#17B35F",8:"#F343AC",9:"#EC5331",0:"#403F4A"};
+const colorMap3  = {1:"#A2FF00",2:"#49EFEF",3:"#FFB800",4:"#FFA1FB",5:"#FF7528",6:"#FF1E39",7:"#00B127",8:"#2A32FF",9:"#A9A8D6"};
+
+async function preview(){
+  const h = document.getElementById("block").value || "1";
+  try{
+    const hash = await fetch(`https://blockstream.info/api/block-height/${h}`).then(r=>r.text());
+    if(!hash.includes("ab")){ alert("No 'ab' in this blockhash"); return; }
+    const digits = hash.match(/.{1,2}/g).slice(0,7).map(x=>parseInt(x,16)%10).reverse();
+    root.innerHTML = renderCat(digits,h);
+    document.getElementById("info").textContent = JSON.stringify({
+      block:h,
+      special: h.includes('69') ? "69 Star (AbieCats Catnip)" : "None",
+      traits:{bg:colorMap[digits[0]],fur:colorMap2[digits[1]],eyes:colorMap3[digits[6]]}
+    },null,2);
+  }catch(e){alert("Try a valid block number");}
+}
+
+function renderCat(d,h){
+  let s = '';
+  const c1=colorMap[d[0]], c2=colorMap2[d[1]], earL=colorMap2[d[2]], earR=colorMap2[d[3]];
+  const nose=colorMap2[d[4]], stripe=colorMap[d[5]], tooth=colorMap3[d[6]];
+  
+  s+=`<div style="position:absolute;top:59px;left:105px"><svg width=80 height=80><path d="M0 0L80 80L0 80Z" fill="${earL}"/></svg></div>`;
+  s+=`<div style="position:absolute;top:59px;left:240px"><svg width=80 height=80><path d="M0 80L80 0L80 80Z" fill="${earR}"/></svg></div>`;
+  s+=`<div style="position:absolute;top:345px;left:105px"><svg width=78 height=80><rect width=78 height=80 fill="${c2}"/></svg></div>`;
+  s+=`<div style="position:absolute;top:138px;left:105px"><svg width=215 height=209><path fill-rule=evenodd d="M215 0L0 0L0 209L215 209L215 94L143 94L143 58L215 58ZM22 58L94 58L94 94L22 94ZM197 155H94V180H197V155Z" fill="${c1}"/></svg></div>`;
+  s+=`<div style="position:absolute;top:254px;left:220px"><svg width=28 height=28><path d="M28 28L0 0H28Z" fill="${nose}"/></svg></div>`;
+  s+=`<div style="position:absolute;top:365px;left:105px"><svg width=36 height=54><rect width=36 height=18 fill="${stripe}"/><rect y=36 width=36 height=18 fill="${stripe}"/></svg></div>`;
+  s+=`<div style="position:absolute;top:279px;left:0"><svg width=46 height=146><path d="M46 146H0L0 23C0 10.3 10.3 0 23 0C35.7 0 46 10.3 46 23Z" fill="${c2}"/></svg></div>`;
+  s+=`<div style="position:absolute;top:288px;left:189px"><svg width=40 height=35><rect width=40 height=35 fill="${tooth}"/></svg></div>`;
+  s+=`<div style="position:absolute;top:288px;left:249px"><svg width=40 height=35><rect width=40 height=35 fill="${tooth}"/></svg></div>`;
+  
+  // Eye direction (Natcats look logic)
+  const lastFour = parseInt(h.toString().slice(-4));
+  if (lastFour < 4800) s+=`<div style="position:absolute;top:195px;left:163px"><svg width=158 height=38><rect x=37 y=38 width=37 height=38 transform="rotate(-180 37 38)" fill="#070609"/><rect x=157.5 y=38 width=36.5 height=38 transform="rotate(-180 157.5 38)" fill="#070609"/></svg></div>`;
+  else if (lastFour >= 4800 && lastFour <= 5200) s+=`<div style="position:absolute;top:195px;left:126px"><svg width=195 height=38><rect x=194.5 y=38 width=36.5 height=38 transform="rotate(-180 194.5 38)" fill="#070609"/><rect x=37 y=38 width=37 height=38 transform="rotate(-180 37 38)" fill="#070609"/></svg></div>`;
+  else s+=`<div style="position:absolute;top:195px;left:126px"><svg width=158 height=38><rect x=37 y=38 width=37 height=38 transform="rotate(-180 37 38)" fill="#070609"/><rect x=158 y=38 width=37 height=38 transform="rotate(-180 158 38)" fill="#070609"/></svg></div>`;
+  
+  // 69 Star instead of 420 catnip
+  if(h.includes('69')) s+=`<div style="position:absolute;top:293px;left:356px"><svg width=18 height=18><path d="M9 0L11.2 5.5L17 6.7L12.5 10.8L13.4 16.5L9 14.2L4.6 16.5L5.5 10.8L1 6.7L6.8 5.5Z" fill="#FFD700" style="filter:drop-shadow(0 0 6px #FFD700)"/></svg></div>`;
+  
+  return s;
+}
+
+preview();
+</script>
+</body>
+</html>
