@@ -1,0 +1,15 @@
+{
+  "p": "tap",
+  "op": "dmt-mint",
+  "dep": "PENDING_DEPLOY_ID",
+  "tick": "abiecats",
+  "blk": "97",
+  "traits": {
+    "background": "Forest",
+    "fur": "Tabby",
+    "eyes": "Laser",
+    "mouth": "Meh",
+    "hat": "None",
+    "accessory": "None"
+  }
+}

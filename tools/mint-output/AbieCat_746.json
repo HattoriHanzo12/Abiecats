@@ -1,0 +1,15 @@
+{
+  "p": "tap",
+  "op": "dmt-mint",
+  "dep": "PENDING_DEPLOY_ID",
+  "tick": "abiecats",
+  "blk": "746",
+  "traits": {
+    "background": "Cosmic",
+    "fur": "Galaxy",
+    "eyes": "Sapphire",
+    "mouth": "Grin",
+    "hat": "Wizard Hat",
+    "accessory": "None"
+  }
+}

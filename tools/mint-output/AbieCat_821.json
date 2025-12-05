@@ -1,0 +1,15 @@
+{
+  "p": "tap",
+  "op": "dmt-mint",
+  "dep": "PENDING_DEPLOY_ID",
+  "tick": "abiecats",
+  "blk": "821",
+  "traits": {
+    "background": "Void",
+    "fur": "Ghost",
+    "eyes": "Laser",
+    "mouth": "Meh",
+    "hat": "Wizard Hat",
+    "accessory": "None"
+  }
+}
