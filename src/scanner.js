@@ -42,7 +42,7 @@ async function getBlockHash(height) {
       const json = {
         "p": "tap",
         "op": "dmt-mint",
-        "dep": DEPLOY_ID || "PENDING_DEPLOY_ID",
+        "dep": DEPLOY_ID || "842cb4e670e9afd212e38493c3da68dda9d2885af1604a23de4cea2d9f29e737i0",
         "tick": "abiecats",
         "blk": h.toString()
       };
