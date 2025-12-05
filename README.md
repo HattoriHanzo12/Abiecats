@@ -1,35 +1,39 @@
 # AbieCats – Nat-Natcats
 
-**AbieCats are the spiritual successor to Natcats**  
-Same on-chain SVG magic. Same block-based emergence. Same permissionless minting.  
-But with "ab" in the blockhash instead of "3b"… and a cheeky 69 star instead of 420 catnip.
+**The spiritual successor to Natcats.**  
+Same exact SVG renderer. Same permissionless minting. Same on-chain purity.  
+But instead of "3b" in bits… we hunt **"ab"** in the blockhash — and our catnip is **69**.
 
-> "Natcats, but make it double negative."  
-> — the entire Ordinals timeline, probably
+> “Natcats, but make it double negative.”  
+> — literally everyone on Ordinals Twitter tomorrow
 
 ### Supply & Rarity
-- Pattern: "ab" substring in blockhash field 0 (DMT/TAP)
-- Estimated historical supply: ~900k+ (we will cap Gen 1 at 10,000 for scarcity)
-- Future blocks = future drops (just like Natcats generations)
+- Pattern: `"ab"` substring in **blockhash field 0** (DMT/TAP)
+- Estimated historical supply: 900k+  
+  → **Gen 1 capped at 10,000** for actual scarcity (first-come-first-served)
+- Future blocks = future generations (just like Natcats)
 
 ### Special Trait
 - If the block number contains **69** → glowing golden star (our version of catnip)
 
 ### Tools
 - Live previewer: [viewer/index.html](viewer/index.html)
-- Mint JSON generator: `node src/scanner.js` (outputs to `tools/mint-output/`)
+- Mint JSON generator: `node src/scanner.js` → outputs to `tools/mint-output/`
 
-### How to Mint
-1. Find an unminted block with "ab" in its hash
-2. Use the previewer to see your cat
-3. Inscribe a `dmt-mint` JSON pointing to that block
-4. Done — fully on-chain, forever.
+### How to Mint (Natcats style)
+1. Find an unminted block with "ab" in its hash  
+2. Preview your cat in the viewer  
+3. Inscribe a `dmt-mint` JSON pointing to that block  
+4. Done — 100 % on-chain forever
 
-### Inscriptions (coming today)
-- Element inscription → `inscriptions/element.json`
-- Deploy inscription → `inscriptions/deploy.json`
-- Renderer → `src/AbieCat_renderer.js` (recursive)
+### Inscriptions (being inscribed today)
+- Element: `inscriptions/element.json`  
+- Deploy: `inscriptions/deploy.json`  
+- Renderer: `src/AbieCat_renderer.js` (recursive)
 
-**AbieCats – because not all cats are Natcats… but these ones are Nat-Natcats.**
+**AbieCats – because not all cats are Natcats…  
+but these ones are Nat-Natcats.**
 
-Discord & X coming on launch. Stay tuned.
+X & Discord drop on launch.  
+Get ready.
+
