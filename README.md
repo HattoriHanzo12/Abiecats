@@ -1,39 +1,32 @@
 # AbieCats – Nat-Natcats
 
-**The spiritual successor to Natcats.**  
-Same exact SVG renderer. Same permissionless minting. Same on-chain purity.  
-But instead of "3b" in bits… we hunt **"ab"** in the blockhash — and our catnip is **69**.
-
-> “Natcats, but make it double negative.”  
-> — literally everyone on Ordinals Twitter tomorrow
+On-chain SVG cats born from the **"ab"** pattern in Bitcoin blockhashes.  
+Permissionless minting. 10,000 Gen 1 cap. 69 star catnip.
 
 ### Supply & Rarity
 - Pattern: `"ab"` substring in **blockhash field 0** (DMT/TAP)
-- Estimated historical supply: 900k+  
-  → **Gen 1 capped at 10,000** for actual scarcity (first-come-first-served)
-- Future blocks = future generations (just like Natcats)
+- Gen 1: first 10,000 valid blocks only
+- Future blocks = future generations
 
 ### Special Trait
-- If the block number contains **69** → glowing golden star (our version of catnip)
+- Block number contains **69** → glowing golden star
 
 ### Tools
 - Live previewer: [viewer/index.html](viewer/index.html)
-- Mint JSON generator: `node src/scanner.js` → outputs to `tools/mint-output/`
+- Mint JSON generator: `node src/scanner.js` → `tools/mint-output/`
 
-### How to Mint (Natcats style)
+### How to Mint
 1. Find an unminted block with "ab" in its hash  
-2. Preview your cat in the viewer  
-3. Inscribe a `dmt-mint` JSON pointing to that block  
-4. Done — 100 % on-chain forever
+2. Preview your cat  
+3. Inscribe the `dmt-mint` JSON for that block  
+4. Done — forever on Bitcoin
 
-### Inscriptions (being inscribed today)
-- Element: `inscriptions/element.json`  
-- Deploy: `inscriptions/deploy.json`  
-- Renderer: `src/AbieCat_renderer.js` (recursive)
+### Inscriptions
+- Element → `inscriptions/element.json`
+- Deploy → `inscriptions/deploy.json`  
+  ID: `842cb4e670e9afd212e38493c3da68dda9d2885af1604a23de4cea2d9f29e737i0`
+- Renderer → `src/AbieCat_renderer.js`
 
-**AbieCats – because not all cats are Natcats…  
-but these ones are Nat-Natcats.**
-
-X & Discord drop on launch.  
-Get ready.
+**AbieCats – Nat-Natcats**  
+Now live on Bitcoin.
 
