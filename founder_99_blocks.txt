@@ -1,2 +1,0 @@
-node src/scanner.js | grep "Found #" | head -99 | awk '{print $NF}' > founder_99_blocks.txt
-
