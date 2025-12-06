@@ -1,0 +1,7 @@
+{
+  "p": "tap",
+  "op": "dmt-mint",
+  "dep": "REPLACE_WITH_YOUR_DEPLOY_INSCRIPTION_ID",
+  "tick": "abiecats",
+  "blk": "658"
+}
